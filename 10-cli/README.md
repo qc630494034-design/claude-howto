@@ -813,6 +813,7 @@ The "ultrathink" keyword in prompts activates deep reasoning. The `/effort` menu
 | `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS` | Disable git-related instructions |
 | `CLAUDE_CODE_DISABLE_TERMINAL_TITLE` | Disable terminal title updates |
 | `CLAUDE_CODE_DISABLE_1M_CONTEXT` | Disable 1M token context window |
+| `CLAUDE_CODE_DISABLE_MOUSE_CLICKS` | Disable mouse click/drag/hover in fullscreen mode; wheel scroll still works (v2.1.195+) |
 | `CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK` | Disable non-streaming fallback |
 | `CLAUDE_CODE_ENABLE_TASKS` | Enable task list feature |
 | `CLAUDE_CODE_TASK_LIST_ID` | Named task directory shared across sessions |
@@ -974,10 +975,11 @@ claude -p --output-format json "query"
 
 ---
 
-**Last Updated**: June 24, 2026
-**Claude Code Version**: 2.1.187
+**Last Updated**: June 28, 2026
+**Claude Code Version**: 2.1.195
 **Sources**:
 - https://code.claude.com/docs/en/cli-reference
+- https://code.claude.com/docs/en/env-vars
 - https://code.claude.com/docs/en/changelog#2-1-174
 - https://code.claude.com/docs/en/changelog#2-1-176
 - https://code.claude.com/docs/en/changelog

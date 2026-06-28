@@ -181,6 +181,11 @@ If your MCP server returns errors on the standard OAuth metadata endpoint (`/.we
 
 The URL must use `https://`. This option requires Claude Code v2.1.64 or later.
 
+#### Authentication Startup Notice and Dynamic-Header Refresh (v2.1.193)
+
+- **Startup auth notice (v2.1.193+)**: At startup, Claude Code surfaces a notice listing any MCP servers that still need authentication, so a server that needs a login isn't left silently non-working.
+- **`headersHelper` auto-refresh (v2.1.193+)**: If you supply custom auth via a `headersHelper`, the helper is re-invoked automatically when a server returns HTTP 401 or 403. Credentials refresh on the fly without a manual reconnect. See [Use dynamic headers for custom authentication](https://code.claude.com/docs/en/mcp).
+
 ### Claude.ai MCP Connectors
 
 MCP servers configured in your Claude.ai account are automatically available in Claude Code. This means any MCP connections you set up through the Claude.ai web interface will be accessible without additional configuration.
@@ -1178,8 +1183,8 @@ export GITHUB_TOKEN="your_token"
 
 ---
 
-**Last Updated**: June 24, 2026
-**Claude Code Version**: 2.1.187
+**Last Updated**: June 28, 2026
+**Claude Code Version**: 2.1.195
 **Sources**:
 - https://code.claude.com/docs/en/mcp
 - https://code.claude.com/docs/en/changelog

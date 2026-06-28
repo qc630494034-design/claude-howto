@@ -66,8 +66,11 @@ Hooks are configured in settings files with a specific structure:
 |---------|-------------|---------|
 | Exact string | Matches specific tool | `"Write"` |
 | Regex pattern | Matches multiple tools | `"Edit\|Write"` |
+| Comma-separated | Matches any listed tool (v2.1.191+) | `"Write,Edit"` |
 | Wildcard | Matches all tools | `"*"` or `""` |
 | MCP tools | Server and tool pattern | `"mcp__memory__.*"` |
+
+> **Matchers are matched exactly (v2.1.195+).** A hyphenated identifier (for example an MCP tool name containing a hyphen) no longer accidentally substring-matches a different tool. Comma-separated matchers like `"Write,Edit"` fire on any tool in the list — earlier builds silently never fired them.
 
 **InstructionsLoaded matcher values:**
 
@@ -1499,8 +1502,8 @@ Edit `~/.claude/settings.json` or `.claude/settings.json` with the hook configur
 
 ---
 
-**Last Updated**: June 15, 2026
-**Claude Code Version**: 2.1.176
+**Last Updated**: June 28, 2026
+**Claude Code Version**: 2.1.195
 **Sources**:
 - https://code.claude.com/docs/en/hooks
 - https://code.claude.com/docs/en/permissions

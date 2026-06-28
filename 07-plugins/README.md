@@ -737,6 +737,8 @@ claude plugin install plugin-name@marketplace-name
 /plugin disable plugin-name
 ```
 
+The `/plugin` interface surfaces unused plugins so you can clean them up (v2.1.187+). Enable/disable also works when a plugin's `plugin.json` `name` differs from its marketplace entry name (v2.1.195+).
+
 ### Listing installed plugins (v2.1.163)
 Confirm which plugins are active in the current session:
 ```bash
@@ -1118,8 +1120,8 @@ The following Claude Code features work together with plugins:
 
 ---
 
-**Last Updated**: June 17, 2026
-**Claude Code Version**: 2.1.179
+**Last Updated**: June 28, 2026
+**Claude Code Version**: 2.1.195
 **Sources**:
 - https://code.claude.com/docs/en/plugins
 - https://code.claude.com/docs/en/changelog#2-1-172

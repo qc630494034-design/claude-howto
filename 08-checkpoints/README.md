@@ -55,6 +55,8 @@ When you rewind, you are presented with a menu of five options:
 
 > **Note**: After restoring the conversation or summarizing, the original prompt from the selected message is restored into the input field so you can re-send or edit it.
 
+> **`/clear` is no longer a hard boundary (v2.1.191+)**: `/rewind` can resume from a checkpoint taken *before* you ran `/clear`. Clearing the conversation no longer permanently discards the state that preceded it — you can rewind back across the clear if you need that earlier code or context again.
+
 ## Automatic Checkpoints
 
 Claude Code automatically creates checkpoints for you:
@@ -325,8 +327,8 @@ Remember: checkpoints are not a replacement for git. Use checkpoints for rapid e
 
 ---
 
-**Last Updated**: June 2, 2026
-**Claude Code Version**: 2.1.160
+**Last Updated**: June 28, 2026
+**Claude Code Version**: 2.1.195
 **Sources**:
 - https://code.claude.com/docs/en/checkpointing
 - https://code.claude.com/docs/en/settings

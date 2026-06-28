@@ -526,6 +526,20 @@ Since v2.1.118, `autoMode.allow`, `autoMode.soft_deny`, and `autoMode.environmen
 
 Use `"$defaults"` to keep the shipped baseline rules while layering organization- or project-specific additions on top.
 
+#### Classifying every shell command with `autoMode.classifyAllShell` (v2.1.193)
+
+`autoMode.classifyAllShell` (boolean, v2.1.193+) routes **all** Bash/PowerShell commands through the auto-mode classifier. Enable it when you want the classifier to inspect every shell command in the session.
+
+```json
+{
+  "autoMode": {
+    "classifyAllShell": true
+  }
+}
+```
+
+The same release surfaces a **denial reason** when auto mode blocks an action — visible in the transcript, the denial toast, and the recently-denied list under `/permissions` (v2.1.193+).
+
 #### Built-in intent-based protection (v2.1.183)
 
 Separate from user-configured `hard_deny`, auto mode blocks the following destructive commands by default unless you explicitly asked for them this session:
@@ -1149,6 +1163,8 @@ When you return to a session after being away, Claude can show a brief recap of 
 
 > **OTEL telemetry — re-enable feedback survey (v2.1.136+)**: Organizations capturing OpenTelemetry data can re-enable Anthropic's session-quality survey by setting `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL=1`. The survey is off by default in OTEL deployments because it was previously redirected away from telemetry pipelines.
 
+> **OTEL telemetry — `assistant_response` log event (v2.1.193+)**: Claude Code emits a `claude_code.assistant_response` OpenTelemetry log event carrying the model's response text, letting OTEL pipelines capture what Claude said alongside the existing tool/event telemetry.
+
 **Control recap behavior:**
 
 ```bash
@@ -1380,6 +1396,8 @@ Execute shell commands directly with `!` prefix:
 ```
 
 Use this for quick command execution without switching contexts.
+
+**Since v2.1.193:** bash mode (`!`) has live file-path autocomplete, so paths complete as you type your shell command without leaving the prompt.
 
 **Since v2.1.186:** the output of a `!` command is now automatically sent to Claude, which responds to it. To keep the previous behavior where the output is only added to context without a response, set `"respondToBashCommands": false` in `settings.json`.
 
@@ -2353,8 +2371,8 @@ For more information about Claude Code and related features:
 
 ---
 
-**Last Updated**: June 24, 2026
-**Claude Code Version**: 2.1.187
+**Last Updated**: June 28, 2026
+**Claude Code Version**: 2.1.195
 **Sources**:
 - https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md
 - https://docs.anthropic.com/en/docs/claude-code/settings
